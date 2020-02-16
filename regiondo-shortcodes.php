@@ -16,45 +16,47 @@
 
 
 /**
- * [regiondo_booking_widget offer="11111"] returns a iframe booking widget
+ * booking widget
+ * [regiondo_booking offer="11111"]
  * @return iframe 
  */
-add_shortcode('regiondo_booking_widget', 'dh_regiondo_booking_widget');
+add_shortcode('regiondo_booking', 'dh_regiondo_booking');
 
-function regiondo_booking_widget_init() {
-	function dh_regiondo_booking_widget( $atts, $content, $tag ) {
+function regiondo_booking_init() {
+	function dh_regiondo_booking( $atts, $content, $tag ) {
 		$a = shortcode_atts( array(
 			'offer' => ''
 			), $atts );
 		
 		if ($a['offer'] === '') {
-			return 'Please add the offer ID to you shortcode. <br> like this:[regiondo_booking_widget offer="11111"]';
+			$output = 'Please add the offer ID to you shortcode. <br> like this:[regiondo_booking offer="11111"]';
+			
+			return $output;
 		};
 
 		$output = '<iframe id="regiondo-booking-widget" 
 		data-width="338px" data-checkout="lightbox" 
 		data-url="https://schulerloch.regiondo.de/bookingwidget/vendor/13546/id/' . esc_attr( $a['offer'] ) . '" data-title="Klangreise" 
 		style="border:0;background:transparent;"></iframe>';
-		$output .= '<script id="regiondo-booking-js" 
-		src="https://cdn.regiondo.net/js/integration/regiondo-booking.js" 
-		data-url="https://schulerloch.regiondo.de/"
-		data-cart-show="true"
-		data-cart-price="true"
-		data-cart-icon="https://cdn.regiondo.net/js/integration/regiondo-cart-icon.png"
-		data-cart-color="#ffffff"
-		data-cart-background="#78d28c"
-		data-cart-position="bottom-right"
-		async defer></script>';
 	
 		return $output;
 	}
 }
-add_action('init', 'regiondo_booking_widget_init');
+add_action('init', 'regiondo_booking_init');
 
 
  
+/**
+ * review 
+ * [regiondo_review]
+ * @return iframe 
+ */
 
-
+ /**
+ * voucher
+ * [regiondo_voucher]
+ * @return iframe 
+ */
 
 
 
@@ -63,3 +65,26 @@ if ( is_admin() ) {
 	// require_once __DIR__ . '/admin/plugin-name-admin.php';
 }
 
+
+
+
+/**
+ * add footer scripts for the regiondo widgets
+ */
+add_action('wp_footer', 'regiondo_footer');
+function regiondo_footer(){
+?>
+<script id="regiondo-booking-js" 
+	src="https://cdn.regiondo.net/js/integration/regiondo-booking.js" 
+	data-url="https://schulerloch.regiondo.de/"
+	data-cart-show="true"
+	data-cart-price="true"
+	data-cart-text=""
+	data-cart-icon="https://cdn.regiondo.net/js/integration/regiondo-cart-icon.png"
+	data-cart-color="#ffffff"
+	data-cart-background="#78d28c"
+	data-cart-position="bottom-right"
+	data-cart-font
+	async defer></script>
+<?php
+};
