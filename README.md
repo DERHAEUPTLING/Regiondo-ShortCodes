@@ -26,4 +26,4 @@ Value Vouchers will not be accepted here, but can be entered on checkout after u
 Configure the regiondo intetration like your regiondo domain or the cart button to use the shortcodes with ease.
 
 ## about Regiondo
-[Regiondo](https://www.google.com) is a Online booking system for tour and activity providers. Easily customize your ticket shop, manage bookings, resources, and accept online payments.
+[Regiondo](https://www.regiondo.de/) is a Online booking system for tour and activity providers. Easily customize your ticket shop, manage bookings, resources, and accept online payments.
