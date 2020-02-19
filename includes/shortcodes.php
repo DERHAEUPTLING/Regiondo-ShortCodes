@@ -35,6 +35,9 @@ function regiondo_booking_init() {
 
 
 
+
+
+
  
 	/**
 	 * review 
@@ -58,12 +61,12 @@ function regiondo_booking_init() {
 		$output = '<iframe 
 				id="regiondo-review-widget" 
 				style="border:0;background:transparent;"
-				data-url="https://'. esc_attr($options[ 'regiondo_field_domain']) .'/reviewwidget/vendor/13546"
+				data-url="https://'. esc_attr($options['regiondo_field_domain']) .'/reviewwidget/vendor/13546"
 				data-width="100%"
 				data-products="'.esc_attr( $sc['offer'] ).'"
 				data-language="de_DE"
-				data-number="3"
-				data-total="1"
+				data-number="'. esc_attr($options['regiondo_filed_reviews_per_page']) .'"
+				data-total="'. esc_attr($options['regiondo_filed_reviews_show_total']) .'"
 				data-colors="#ecf3f4,#ffffff,#3d3d3d,#ecb86b">
 			</iframe>';
 		$output .= '<script 
@@ -106,10 +109,6 @@ function regiondo_booking_init() {
 		return $output;
 	}
 
-
-
-
-	
 
 }
 

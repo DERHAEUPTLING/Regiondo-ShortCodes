@@ -51,8 +51,21 @@ function regiondo_settings_init() {
 	);
 
 	add_settings_field(
+		'regiondo_field_vendor_id', // use $args' label_for to populate the id inside the callback
+		__( 'Your Regiondo Vendor ID', 'regiondo' ), 
+		'regiondo_field_vendor_id_cb', // $page
+		'regiondo', // $page
+		'regiondo_settings_section', 
+		[
+			'label_for' => 'regiondo_field_vendor_id'
+		] 
+	);
+
+
+	// Cart
+	add_settings_field(
 		'regiondo_filed_cartButton_checkbox', 
-		__( 'Show cart button', 'regiondo' ),
+		__( 'Cart Button', 'regiondo' ),
 		'regiondo_filed_cartButton_checkbox_cb',
 		'regiondo',
 		'regiondo_settings_section', 
@@ -63,7 +76,7 @@ function regiondo_settings_init() {
 
 	add_settings_field(
 		'regiondo_filed_cartButton_price', 
-		__( 'Show price in button', 'regiondo' ),
+		__( 'Cart Button: Show price', 'regiondo' ),
 		'regiondo_filed_cartButton_price_cb',
 		'regiondo',
 		'regiondo_settings_section', 
@@ -74,7 +87,7 @@ function regiondo_settings_init() {
 
 	add_settings_field(
 		'regiondo_filed_cartButton_quatity', 
-		__( 'Show quantity in button', 'regiondo' ),
+		__( 'Cart Button: Show quantity', 'regiondo' ),
 		'regiondo_filed_cartButton_quatity_cb',
 		'regiondo',
 		'regiondo_settings_section', 
@@ -85,7 +98,7 @@ function regiondo_settings_init() {
 
 	add_settings_field(
 		'regiondo_field_cartButton_text', // use $args' label_for to populate the id inside the callback
-		__( 'Your Regiondo domain', 'regiondo' ), 
+		__( 'Cart Button: Text', 'regiondo' ), 
 		'regiondo_field_cartButton_text_cb', // $page
 		'regiondo', // $page
 		'regiondo_settings_section', 
@@ -93,6 +106,31 @@ function regiondo_settings_init() {
 			'label_for' => 'regiondo_field_cartButton_text'
 		] 
 	);
+
+	// Reviews
+	add_settings_field(
+		'regiondo_filed_reviews_per_page', 
+		__( 'Reviews: per page', 'regiondo' ),
+		'regiondo_filed_reviews_per_page_cb',
+		'regiondo',
+		'regiondo_settings_section', 
+		[
+				'label_for' => 'regiondo_filed_reviews_per_page'
+		] 
+	);
+
+	add_settings_field(
+		'regiondo_filed_reviews_show_total', 
+		__( 'Reviews: show total', 'regiondo' ),
+		'regiondo_filed_reviews_show_total_cb',
+		'regiondo',
+		'regiondo_settings_section', 
+		[
+				'label_for' => 'regiondo_filed_reviews_show_total'
+		] 
+	);
+
+
 
 
 
@@ -141,11 +179,6 @@ add_action( 'admin_init', 'regiondo_settings_init' );
   * $args have the following keys defined: title, id, callback.
   * the values are defined at the add_settings_section() function.
 	*/
-function regiondo_settings_section_cb( $args ) {
-	?>
-	<p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Enter the data of your Regiondo account.', 'regiondo' ); ?></p>
-	<?php
-}
 
 	
 
@@ -158,7 +191,20 @@ function regiondo_field_domain_cb( $args ) {
 	<input type="text" 
 		id="<?php echo esc_attr( $args['label_for'] ); ?>" 
 		name="regiondo_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
-		value="<?php echo $options[ 'regiondo_field_domain']; ?>"/>
+		value="<?php echo $options[ 'regiondo_field_domain']; ?>"
+		required />
+	<?php
+}
+
+// field Vendor ID
+function regiondo_field_vendor_id_cb( $args ) {
+	$options = get_option( 'regiondo_options' );
+	?>
+	<input type="text" 
+		id="<?php echo esc_attr( $args['label_for'] ); ?>" 
+		name="regiondo_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+		value="<?php echo $options[ 'regiondo_field_vendor_id']; ?>"
+		required />
 	<?php
 }
 
@@ -208,6 +254,32 @@ function regiondo_field_cartButton_text_cb( $args ) {
 		value="<?php echo $options[ 'regiondo_field_cartButton_text']; ?>"/>
 	<?php
 }
+
+
+// field Reviews per page
+function regiondo_filed_reviews_per_page_cb( $args ) {
+	$options = get_option( 'regiondo_options' );
+	?>
+	<input type="number" 
+		id="<?php echo esc_attr( $args['label_for'] ); ?>" 
+		name="regiondo_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+		value="<?php echo $options[ 'regiondo_filed_reviews_per_page']; ?>"/>
+	<?php
+}
+
+// field Reviews show total
+function regiondo_filed_reviews_show_total_cb( $args ) {
+	$options = get_option( 'regiondo_options' );
+	?>
+	<input type='checkbox' 
+		id="<?php echo esc_attr( $args['label_for'] ); ?>"  
+		name="regiondo_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+		value="1"
+		<?php checked( '1', $options[ 'regiondo_filed_reviews_show_total'] ); ?>/>
+	<?php
+}
+
+
 
 
 
