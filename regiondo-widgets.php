@@ -18,5 +18,7 @@ if ( is_admin() ) {
 }
 
 
-require plugin_dir_path( __FILE__ ) . 'includes/shortcodes.php';
+require plugin_dir_path( __FILE__ ) . 'includes/shortcode_booking.php';
+require plugin_dir_path( __FILE__ ) . 'includes/shortcode_review.php';
+require plugin_dir_path( __FILE__ ) . 'includes/shortcode_voucher.php';
 require plugin_dir_path( __FILE__ ) . 'includes/footer.php';

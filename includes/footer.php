@@ -7,7 +7,7 @@ add_action('wp_footer', 'regiondo_footer');
 function regiondo_footer(){
 
 	$options = get_option( 'regiondo_options' );
-	echo '<pre>' . print_r($options, true) . '</pre>';
+	// echo '<pre>' . print_r($options, true) . '</pre>';
 ?>
 
 <script id="regiondo-booking-js" 
