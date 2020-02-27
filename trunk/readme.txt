@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Regiondo Widgets ===
 Contributors: derhaeuptling
 Donate link: https://example.com/
 Tags: regiondo, widgets, iframe, booking
