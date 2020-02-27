@@ -3,7 +3,7 @@
  * Plugin Name: Regiondo Widgets
  * Plugin URI: https://github.com/derhaeuptling/Regiondo-ShortCode-Widgets
  * Description: Add Regiondo Widgets.
- * Version: 0.1
+ * Version: 1.0
  * Author: DER HÄUPTLING
  * Author URI: https://derhaeuptling.com/
  * License: GPLv2 or later
