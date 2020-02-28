@@ -2,10 +2,10 @@
 Contributors: derhaeuptling
 Donate link: https://example.com/
 Tags: regiondo, widgets, iframe, booking
-Requires at least: 5.0
+Requires at least: 4.6
 Tested up to: 5.3
 Stable tag: trunk
-Requires PHP: 7.2
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,9 +61,6 @@ This section describes how to install the plugin and get it working.
 
 
 == Changelog ==
-
-= 1.0.1 =
-* Change Pluginname
 
 = 1.0 =
 * Release Version 

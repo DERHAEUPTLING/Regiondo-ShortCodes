@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Regiondo Widgets
+ * Plugin Name: Regiondo ShortCodes
  * Plugin URI: https://github.com/derhaeuptling/Regiondo-ShortCode-Widgets
- * Description: Add Regiondo Widgets.
- * Version: 1.0
+ * Description: Add Regiondo Widgets with WordPress ShortCodes.
+ * Version: 1.0.1
  * Author: DER HÄUPTLING
  * Author URI: https://derhaeuptling.com/
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: regiondo-widgets
+ * Text Domain: regiondo-ShortCodes
  */
 
 
